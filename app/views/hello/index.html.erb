@@ -1,0 +1,40 @@
+<h1>Users</h1>
+
+<div class="users-list">
+  <% @users.each do |user| %>
+    <div class="user-card">
+      <h3><%= user.username %></h3>
+      <p><%= user.email %></p>
+      <%= link_to 'View Profile', profile_path(user), 
+          class: 'btn btn-primary',
+          data: { 
+            controller: 'bridge--button',
+            bridge_title: "Profile"
+          } %>
+    </div>
+  <% end %>
+</div>
+
+<style>
+  .users-list {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .user-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background: white;
+  }
+  
+  .user-card h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .user-card p {
+    margin: 0 0 1rem 0;
+    color: #666;
+  }
+</style>

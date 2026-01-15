@@ -1,0 +1,33 @@
+<div class="profile-container">
+  <h1><%= @user.username %></h1>
+  <p><strong>Email:</strong> <%= @user.email %></p>
+  
+  <div class="actions">
+    <%= link_to 'Edit Profile', edit_profile_path(@user), 
+        class: 'btn btn-secondary',
+        data: { 
+          controller: 'bridge--button',
+          bridge_title: "Edit Profile"
+        } %>
+    
+    <%= link_to 'Back to Users', root_path, 
+        class: 'btn btn-outline-secondary' %>
+  </div>
+</div>
+
+<style>
+  .profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  .actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+</style>

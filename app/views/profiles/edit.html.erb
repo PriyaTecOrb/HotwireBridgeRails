@@ -1,0 +1,30 @@
+<!-- app/views/users/edit.html.erb -->
+<div class="container">
+  <h1>Edit Profile</h1>
+  
+  <!-- The bridge--form controller wraps the form -->
+  <div data-controller="bridge--form" data-bridge--form-type-value="edit">
+    <%= form_with model: @user, url: profile_path(@user), method: :patch do |f| %>
+      
+      <!-- Hidden fields that will be filled by native form -->
+      <%= f.hidden_field :username %>
+      <%= f.hidden_field :email %>
+      
+      <!-- Optional: Show current values (readonly) -->
+      <div class="mb-3">
+        <label class="form-label">Current Username:</label>
+        <p class="text-muted"><%= @user.username %></p>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Current Email:</label>
+        <p class="text-muted"><%= @user.email %></p>
+      </div>
+      
+      <p class="text-info">
+        Tap anywhere to edit using native iOS form
+      </p>
+      
+    <% end %>
+  </div>
+</div>
