@@ -9,12 +9,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
-      redirect_to profile_path(@user), notice: 'User was successfully created.'
+      redirect_to profile_path(@user)
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+
 
   private
 

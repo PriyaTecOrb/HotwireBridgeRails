@@ -1,6 +1,16 @@
 class ProfilesController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    respond_to do |format|
+      format.html # This should render show.html.erb
+      format.json {
+        render json: {
+          name: @user.username,
+          email: @user.email,
+          avatar_url: "https://i.pravatar.cc/300"
+        }
+      }
+    end
   end
 
   def edit
@@ -11,7 +21,8 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update(user_params)
-      redirect_to profile_path(@user), notice: "Profile updated successfully!"
+      #redirect_to profile_path(@user), notice: "Profile updated successfully!"
+      redirect_to welcome_path(), notice: "Profile updated successfully!"
     else
       render :edit, status: :unprocessable_entity
     end

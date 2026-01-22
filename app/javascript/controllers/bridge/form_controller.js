@@ -67,7 +67,8 @@ export default class extends BridgeComponent {
         form.elements["user[email]"].value = result.data.data.email
 				form.elements["user[password]"].value = result.data.data.password
       
-        form.submit()
+        // form.submit()
+        form.requestSubmit()
       }
     })
   }
