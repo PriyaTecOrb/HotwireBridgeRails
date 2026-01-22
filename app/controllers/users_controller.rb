@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to profile_path(@user)
+      # redirect_to profile_path(@user)
+       redirect_to welcome_path()
     else
       render :new, status: :unprocessable_entity
     end

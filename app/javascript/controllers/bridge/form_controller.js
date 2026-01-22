@@ -47,7 +47,7 @@ export default class extends BridgeComponent {
         
         // Submit the web form
 				console.log("Submitting web form")
-        form.submit()
+        form.requestSubmit()
       }
     })
 	}

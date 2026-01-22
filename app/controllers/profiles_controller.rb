@@ -21,8 +21,8 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
     
     if @user.update(user_params)
-      #redirect_to profile_path(@user), notice: "Profile updated successfully!"
-      redirect_to welcome_path(), notice: "Profile updated successfully!"
+      redirect_to profile_path(@user)
+      # redirect_to welcome_path(), notice: "Profile updated successfully!"
     else
       render :edit, status: :unprocessable_entity
     end
